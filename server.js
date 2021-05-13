@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 dotenv.config({path:'./config/config.env'});
 
+const expenseRoute = require('./routes/expenses')
+
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true}).then(()=>{
@@ -21,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 
 // Routes
-app.use('/api/expense',expenseRoute);
+app.use('/api/expenses',expenseRoute);
 
 app.listen(PORT,()=>{
     console.log(`Server running on PORT ${PORT}`)

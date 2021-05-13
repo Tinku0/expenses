@@ -7,12 +7,12 @@ const Expense = require('../models/expense')
 
 router.post('/',(req,res)=>{
 
-    expense - new Expense({
+    expense = new Expense({
 
-        name : req.params.name,
-        purpose : req.params.purpose,
-        expenditure : req.params.expenditure,
-        date : req.params.date
+        name : req.body.name,
+        purpose : req.body.purpose,
+        expenditure : req.body.expenditure,
+        date : req.body.date
 
     });
 
@@ -21,6 +21,26 @@ router.post('/',(req,res)=>{
     }).catch((err)=>{
         res.status(500).json({ status : false , msg : 'Something went wrong' });
     });
+
+})
+
+router.get('/',(req,res)=>{
+
+    expense.find().then((expenses)=>{
+        res.send(expenses);
+    }).catch((err)=>{
+        res.status(500).json({ status : false , msg : 'Something went wrong'})
+    })
+
+})
+
+router.get('/:id',(req,res)=>{
+
+    expense.findById(req.params.id).then((expense)=>{
+        res.send(expense);
+    }).catch((err)=>{
+        res.status(500).json({ status : false , msg : 'Something went wrong'})
+    })
 
 })
 
