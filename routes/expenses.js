@@ -26,7 +26,7 @@ router.post('/',(req,res)=>{
 
 router.get('/',(req,res)=>{
 
-    expense.find().then((expenses)=>{
+    Expense.find().then((expenses)=>{
         res.send(expenses);
     }).catch((err)=>{
         res.status(500).json({ status : false , msg : 'Something went wrong'})
@@ -36,7 +36,7 @@ router.get('/',(req,res)=>{
 
 router.get('/:id',(req,res)=>{
 
-    expense.findById(req.params.id).then((expense)=>{
+    Expense.findById(req.params.id).then((expense)=>{
         res.send(expense);
     }).catch((err)=>{
         res.status(500).json({ status : false , msg : 'Something went wrong'})
