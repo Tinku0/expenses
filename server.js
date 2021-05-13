@@ -4,7 +4,9 @@ const dotenv = require('dotenv');
 
 const mongoose = require('mongoose');
 
-dotenv.config({path:'./config/config.env'});
+require("dotenv").config();
+
+// dotenv.config({path:'/'});
 
 const expenseRoute = require('./routes/expenses')
 
