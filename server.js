@@ -12,7 +12,7 @@ const expenseRoute = require('./routes/expenses')
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true}).then(()=>{
+mongoose.connect(process.env.MONGO_URI,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
     console.log('Database connected');
 }).catch(err=>{
     console.log(err);
