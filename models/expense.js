@@ -1,6 +1,14 @@
 const mongoose = require('mongoose');
 
+const moment = require('moment'); //moment
+
+
+var DateOnly = require('mongoose-dateonly')(mongoose);
+
+var utcDate = moment.utc().toDate();
+
 const expenseSchema = new mongoose.Schema({
+    
 
     name : {
         type : String,
@@ -15,8 +23,11 @@ const expenseSchema = new mongoose.Schema({
         required : true
     },
     date : {
-        type : Date,
+        type : String,
+        // default: new Date()
         required : true
+        // default:new Date("<YYYY-mm-dd>"),
+        // max:new Date()
     },
 
 });
