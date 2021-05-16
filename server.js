@@ -10,7 +10,9 @@ require("dotenv").config();
 
 // dotenv.config({path:'/'});
 
-const expenseRoute = require('./routes/expenses')
+const expenseRoute = require('./routes/expenses');
+
+const userRoute = require('./routes/users');
 
 const app = express();
 
@@ -29,6 +31,7 @@ app.use(express.urlencoded({ extended:true}));
 
 // Routes
 app.use('/api/expenses',expenseRoute);
+app.use('/api/users',userRoute);
 
 app.listen(PORT,()=>{
     console.log(`Server running on PORT ${PORT}`)
